@@ -137,7 +137,8 @@ The following instruction set is defined directly in the `ops` table in `Assembl
 | `RET` | `0x41` | None | none | Return from subroutine [1] |
 | `PUSH` | `0x50` | OneReg | `reg` | Push register value onto stack [1] |
 | `POP` | `0x51` | OneReg | `reg` | Pop value from stack into register [1] |
-| `OUT` | `0x60` | OneReg | `reg` | Output register value to device or console [1] |
+| `OUT` | `0x60` | OneReg | `reg` | Output register char value to device or console [1] |
+| `OUTN` | `0x61` | OneReg | `reg` | Output register int value to device or console [1] |
 | `HLT` | `0xFF` | None | none | Halt execution [1] |
 
 ## Encoding details
