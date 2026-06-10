@@ -145,7 +145,7 @@ namespace {
         switch (it->second.kind) {
             case Kind::None:    return 1;
             case Kind::OneReg:  return 2;
-            case Kind::TwoReg:  return 3;
+            case Kind::TwoReg:  return 2;
             case Kind::RegImm8: return 3;
             case Kind::Addr16:  return 3;
         }
