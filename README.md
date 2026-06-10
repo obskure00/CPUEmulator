@@ -86,11 +86,20 @@ Usage behavior is therefore equivalent to:
 
 If assembly fails or the output file cannot be opened, the program reports an error message and returns a nonzero exit status [2].
 
-## Build instructions
+This project includes a `CMakeLists.txt` file, so the recommended way to build is with CMake.
 
-The attached source files do not include a build system such as CMake or a Makefile, so the simplest way to build the project is to compile the translation units directly with a modern C++ compiler [12][2][4][3][8][11][6][13][5][10][1][9][7]. A compiler with C++17 support or newer is a sensible default because the code uses standard library containers, strings, streams, and fixed-width integer types extensively [4][7][3].
+From the project root:
 
-Example build commands with `g++`:
+```bash
+mkdir -p build
+cd build
+cmake ..
+cmake --build .
+```
+
+This will generate the emulator and assembler executables (for example, `emulator` and `assembler`, depending on how they are named in `CMakeLists.txt`).
+
+If you prefer to build manually without CMake, you can still compile the sources directly with a modern C++ compiler, for example:
 
 ```bash
 g++ -std=c++17 -O2 -Wall -Wextra -pedantic \
@@ -101,10 +110,6 @@ g++ -std=c++17 -O2 -Wall -Wextra -pedantic \
   AssemblerMain.cpp Assembler.cpp \
   -o assembler
 ```
-
-If your actual filenames contain numeric suffixes such as `main-13.cpp` or `CPU-4.cpp`, either rename them to the include-matching names shown in the source or compile using the exact filenames present in your directory [1][8][2]. The includes in the code reference names like `CPU.hpp`, `Assembler.hpp`, and `Loader.hpp`, so consistent file naming matters for a successful build [1][2][3].
-
-On Linux or macOS, build from the project root so the compiler can find the local headers in the same directory [1][2]. If needed, add `-I.` explicitly to the compiler command line [1][2].
 
 ## Running programs
 
