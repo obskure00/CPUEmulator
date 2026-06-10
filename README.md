@@ -151,9 +151,3 @@ This program loads ASCII character values into register `A`, prints them using `
 The codebase already contains several useful runtime and assembly-time checks [2][4][5]. The assembler reports issues such as unknown instructions, invalid registers, malformed literals, and out-of-range 8-bit immediates [4]. The loader rejects empty files and programs that would overflow the 16-bit address space when loaded at the selected origin [5].
 
 The emulator and standalone assembler both catch `std::exception` and print readable error messages to standard error before returning a failure status [1][2]. This makes the tools practical to use from a shell or inside a larger build pipeline [1][2].
-
-## Notes for future improvement
-
-The project is already a solid educational CPU-and-assembler codebase, especially for experimenting with instruction encoding, fetch/decode/execute structure, flags, stack mechanics, and symbolic assembly [4][8][6]. Natural next steps would include adding a formal build system, unit tests for instruction semantics and assembler parsing, sample assembly programs, and a more explicit specification of memory-addressing conventions for `LDR` and `STR` [6][5].
-
-Another useful improvement would be a top-level `docs/` folder containing the ISA manual, example programs, opcode tables, and a short architecture overview, because that would make the repository easier for other people to build, study, and extend [4][11].
